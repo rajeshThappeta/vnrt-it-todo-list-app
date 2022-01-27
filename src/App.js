@@ -4,6 +4,8 @@ import Addtodo from './components/Addtodo'
 import Todolist from './components/Todolist'
 import Todocount from './components/Todocount'
 import { useState } from 'react';
+import Adduser from './components/Adduser';
+import Userlist from './components/Userslist';
 
 
 function App() {
@@ -22,6 +24,15 @@ function App() {
         </div>
         <div className="col-sm-4">
           <Todocount todolist={todolist} />
+        </div>
+      </div>
+
+      <div className="row mt-5">
+        <div className="col-sm-6">
+          <Adduser />
+        </div>
+        <div className="col-sm-6">
+          <Userlist />
         </div>
       </div>
     </div>

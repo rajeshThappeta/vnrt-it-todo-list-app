@@ -1,13 +1,20 @@
 
+import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
+import { addTodo } from '../slices/todoSlice'
 
 function Addtodo(props) {
 
     let { register, handleSubmit, formState: { errors } } = useForm()
+    let dispatch = useDispatch()
 
 
     const onFormSubmit = (todoObj) => {
-        props.setTodolist([...props.todolist, todoObj.newtodo])
+
+        //create action obj
+        let actionObj = addTodo(todoObj.newtodo)
+        //dispatch action object to redux store
+        dispatch(actionObj)
     }
 
     return (
@@ -21,7 +28,7 @@ function Addtodo(props) {
                 <button type="submit" className="btn btn-success">Add new todo</button>
             </form>
 
-           
+
 
         </div>
     )

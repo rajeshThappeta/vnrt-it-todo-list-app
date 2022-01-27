@@ -1,6 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 
-function Todolist(props) {
+
+function Todolist() {
+
+    //get todos state from store
+    let todoList = useSelector(state => state.todos)
+
     return (
         <div>
             <p className="display-5 text-primary">List of todos</p>
@@ -9,7 +15,7 @@ function Todolist(props) {
             <div className="text-center">
 
                 {
-                    props.todolist.map((todo, index) => <h1 key={index}>{todo}</h1>)
+                    todoList.map((todo, index) => <h1 key={index}>{todo}</h1>)
                 }
             </div>
         </div>
